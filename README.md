@@ -1,3 +1,7 @@
+# Install json-server for fake api
+### `sudo npm install -g json-server`
+### `json-server db.json`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
