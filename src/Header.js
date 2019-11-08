@@ -4,7 +4,7 @@ import React from 'react';
 const Header = () => {
     return(
         <header>
-            <i class="fa fa-book fa-2x"></i>
+            <i className="fa fa-book fa-2x"></i>
             <h1>Book Cards</h1>
         </header>
     )
