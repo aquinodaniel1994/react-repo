@@ -1,27 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person'; 
+import Person from './Person/Person';
+class App extends Component {
+  state = {
+    person: [
+      { name: "daniel" },
+      { name: "gianni" }
+    ]
+  };
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        </a>
-      <Person />
-      </header>
-    </div>
-  );
+  changeName = () => {
+    this.setState({
+      person: [
+        { name: "Ciccio" },
+        { name: "Caviale" }
+      ]
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <button onClick={this.changeName}>Change name</button>
+        <Person name={this.state.person[0].name} age={Math.floor(Math.random() * 25)} />
+        <Person name={this.state.person[1].name} age={Math.floor(Math.random() * 25)}> props children </Person>
+      </div>
+    );
+  }
 }
 
 export default App;
