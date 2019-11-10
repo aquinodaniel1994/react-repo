@@ -9,10 +9,10 @@ class App extends Component {
     ]
   };
 
-  changeName = () => {
+  changeName = (newName) => {
     this.setState({
       person: [
-        { name: "Ciccio" },
+        { name: newName },
         { name: "Caviale" }
       ]
     })
@@ -21,8 +21,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.changeName}>Change name</button>
-        <Person name={this.state.person[0].name} age={Math.floor(Math.random() * 25)} />
+        <button onClick={this.changeName.bind(this, "bottone")}>Change name</button>
+        <Person click={this.changeName.bind(this,"muller")} name={this.state.person[0].name} age={Math.floor(Math.random() * 25)} />
         <Person name={this.state.person[1].name} age={Math.floor(Math.random() * 25)}> props children </Person>
       </div>
     );
