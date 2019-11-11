@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
@@ -14,8 +13,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.person.map(person => {
-          return (<Person name={person.name} />)
+        {this.state.person.map((person, index) => {
+          return (<Person key={index} name={person.name} />)
         })}
       </div>
     );
