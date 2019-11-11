@@ -11,11 +11,16 @@ class App extends Component {
       { name: "Giacomo" },
     ]
   }
+  deleteElement = (indexElement) =>  {
+    const persons = [...this.state.person];
+    persons.splice(indexElement, 1);
+    this.setState({ person: persons });
+  }
   render() {
     return (
       <div className="App">
-        {this.state.person.map(person => {
-          return (<Person name={person.name} />)
+        {this.state.person.map((person, index) => {
+          return (<Person key={index} name={person.name} deletePerson={this.deleteElement.bind(this, index)} />)
         })}
       </div>
     );

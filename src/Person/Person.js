@@ -1,8 +1,12 @@
 import React from 'react';
+import './Person.css';
 
 const Person = (props) => {
     return (
-        <p>{props.name}</p>
+        <div className="Person">
+            <p>{props.name}</p>
+            <button onClick={props.deletePerson}>Delete</button>
+        </div>
     );
 }
 
