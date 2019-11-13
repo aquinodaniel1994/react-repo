@@ -1,25 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import ValidationComponent from './ValidationComponent/ValidationComponent';
+import CharComponent from  './CharComponent/CharComponent';
 class App extends Component{
+  state={
+    userInput : '',
+  }
+  inputChangeHandler = (event) => {
+    this.setState({userInput: event.target.value})
+  }
+  
+  deleteCharHandler = ( index ) => {
+    const text = this.state.userInput.split('');
+    text.splice(index, 1); // rimuove il carattere dall'array
+    const updateText = text.join('');
+    this.setState({userInput: updateText});
+
+  }
+
   render() {
+    const charList = this.state.userInput.split('').map((ch, index) => {
+      return <CharComponent 
+        outputChar = {ch} 
+        key = {index} 
+        clicked = { () => this.deleteCharHandler(index)}
+      />;
+    });
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
+        <input
+          type="text"
+          value = {this.state.userInput}
+          onChange = {this.inputChangeHandler} 
+        />
+        <p>
+          {this.state.userInput}
         </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
-        </header>
+        <ValidationComponent 
+          inputLength={this.state.userInput.length}
+        />
+        {charList}
       </div>
     );
   }
