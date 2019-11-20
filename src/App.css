@@ -24,3 +24,17 @@
 .container{
   border: 1px solid black;
 }
+
+button{
+  border-radius: 5px; 
+  padding: 10px; 
+  margin: 5px; 
+  background-color:white;
+  border: 1px solid black;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+button:hover{
+  background-color: rgb(87, 87, 255)
+}

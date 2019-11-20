@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import Button from '../../Commons/Button'
+import { fileURLToPath } from 'url';
 class Control extends Component {
+
+  addElement = (element) => {
+    element.qty += 1;
+    this.props.change(element)
+  }
+
+  removeElement = (element) => {
+    element.qty -= 1;
+    this.props.change(element)
+  }
+
   render() {
     return (
       <div>
@@ -8,14 +20,14 @@ class Control extends Component {
           return (
             <div key={index} >
               <h3>{ingredients.name}</h3>
-              <Button name="Add">Add</Button>
-              <Button name="Remove">Add</Button>
+              <Button name="Add" function={this.addElement.bind(this, ingredients)}>Add</Button>
+              <Button name="Remove" function={this.removeElement.bind(this, ingredients)}>Remove</Button>
             </div>
           )
         })
         }
       </div>
-      
+
     );
   }
 

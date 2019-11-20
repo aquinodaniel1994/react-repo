@@ -10,10 +10,15 @@ class BurgerContainer extends Component {
             { name: "Mayo", price: 0.25, qty: 0 }
         ]
     }
+
+    handleChange = (event) => {
+        this.setState(event);
+    } 
+
     render() {
         return (
             <div className="container">
-                <Control burger={this.state.ingr} />
+                <Control burger={this.state.ingr} change={this.handleChange}/>
                 <Burger burger={this.state.ingr}/>
             </div>
         );
