@@ -18,6 +18,9 @@ class BurgerContainer extends Component {
         event.qty += 1;
         oldState.ingr[indexElement] = event
         this.setState(oldState);
+
+        /* Update price */  
+        this.props.price(event.price);
     }
 
     render() {
