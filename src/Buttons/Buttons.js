@@ -2,10 +2,10 @@ import React from 'react';
 
 const btnIngr = (props) => {
     return(
-        <div>
-            <button type="button" onClick={() => props.handleAddIngredients(props.name)}>Add</button>
-            <button type="button" onClick={() => props.handleRemoveIngredients(props.name)}>Remove</button>
-        </div>
+        <span>
+            <button type="button" name="add" onClick={(e) => props.handleChangeIngredients(props.ingr, e)}>Add</button>
+            <button type="button" name="remove" onClick={(e) => props.handleChangeIngredients(props.ingr, e)}>Remove</button>
+        </span>
     );
 }
 

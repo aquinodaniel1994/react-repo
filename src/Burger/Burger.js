@@ -1,32 +1,22 @@
 import React, { Component } from 'react';
 
-// const Burger = (props) => {
-
-//         return( 
-//             <div>
-//                 <p>Burger:</p>
-//                 <p>burger ciccio : {props.children}</p>
-//             </div>
-//         );
-// }
-
 class Burger extends Component {
-    /**
-     * prende evento di ingredients del btn, incrementa
-     * il prezzo
-     * aggiorna stato array ingrs.
-     * mostra uno strato in più nel burger
-     * 
-     */
-
     render() {
+        const burgerLayers = [];
+        this.props.ingrArray.forEach((ingrIterator) => {
+            for (let i = 0; i < ingrIterator.quantity; i++) {
+                burgerLayers.push(<div>{ingrIterator.name}</div>);
+            }
+        })
         return (
             <div>
-                <p>Burger:</p>
-                
-            </div>
+                <div>/^^^^\</div>
+                {burgerLayers}
+                <div>\____/</div>
+            </div >
         );
     }
+
 }
 
 export default Burger;
