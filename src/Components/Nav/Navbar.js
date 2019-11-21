@@ -1,9 +1,11 @@
 import React, {Component} from 'react'; 
-
+import './Navbar.css'
 class Navbar extends Component {
     render() {
         return (
-        <div>Navbar Component</div>
+            <div className="nav">
+                <span>{this.props.totalPrice}€</span>
+            </div>
         );
     }
 

@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-
+import './Burger.css'
 class Burger extends Component {
     render() {
         return (
             <span>
-                <ul>
-                    {this.props.burger.map((ingredient, i)  => {
-                    return (<li key={i}>{ingredient.name}, QTY: {ingredient.qty}</li>)
-                    })}
-                </ul>
+                {this.props.burger.map((ingredient, i) => {
+                    return (<div key={i} className={ingredient.name}>{ingredient.name}, QTY: {ingredient.qty}</div>)
+                })}
             </span>
         );
     }
 
 }
-
 
 export default Burger; 

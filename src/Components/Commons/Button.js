@@ -8,8 +8,6 @@ class Button extends Component {
             </span>
         );
     }
-
 }
-
 
 export default Button; 

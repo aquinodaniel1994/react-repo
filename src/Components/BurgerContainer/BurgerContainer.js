@@ -12,18 +12,22 @@ class BurgerContainer extends Component {
     }
 
     handleChange = (event) => {
-        this.setState(event);
-    } 
+        let oldState = this.state;
+        event.qty -= 1;
+        let indexElement = oldState.ingr.indexOf(event);
+        event.qty += 1;
+        oldState.ingr[indexElement] = event
+        this.setState(oldState);
+    }
 
     render() {
         return (
             <div className="container">
-                <Control burger={this.state.ingr} change={this.handleChange}/>
-                <Burger burger={this.state.ingr}/>
+                <Burger burger={this.state.ingr} />
+                <Control burger={this.state.ingr} change={this.handleChange} />
             </div>
         );
     }
-
 }
 
 
